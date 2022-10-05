@@ -1,3 +1,4 @@
+import { KeyValue } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
@@ -70,5 +71,17 @@ export class AppComponent implements OnInit {
     let result;
     testTypes.some(idMatch);
     return result;
+  }
+
+  isIntersecting(event: any, id: number) {
+    console.log(`card ${id} is intersecting:`, event);
+  }
+
+  get testTypesToShowKeys() {
+    return this.testTypesToShow.keys();
+  }
+
+  trackByFn(i: number, item: KeyValue<string, any>) {
+    return item.key;
   }
 }
